@@ -1,0 +1,23 @@
+Probability Distributions
+	Discrete: Defined by a probability mass function PMF denoted by P(X) or P(X=x)
+		X is the RV. x is a possible value.
+		x = heads (1) or tails (0), P(X=1) = probability of heads
+		P(X=1) = 1/2 means coin is fair
+		Joint Distribution of X and Y is given by P(X=x, Y=y)
+		Rules for PMFs: 
+			Sum of x in X of f(x) equals 1
+			f(x) is in the set of 0 and 1 inclusive and
+			f has to cover all possible values of x
+			Discrete Uniform Random Variable: P(X=xi) = 1/k if x is in the set {x1,x2,x3,...,xk}
+	Continuous:
+		Probability density instead of mass
+		Rules for PDFs:
+			Integral of p(x)dx is 1
+			dom(p) = possible values of X
+			For all x, p(x) >= 0, p(x) > 1 is allowed
+		Probability that X falls in [a,b] is integral(b to a) of p(x)dx
+		Roughly p(x)dx is the probability that X fall in an interval centered on x, of width dx. (if dx is infinitesimal)
+		Ex: Continuous Uniform RV
+			Suppose b > a. Then define
+			u(x; a,b) = { 0 if x is not in the set of a, b
+						{ 1/b-a if x is in the set of [a,b] 

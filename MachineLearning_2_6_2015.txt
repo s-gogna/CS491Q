@@ -1,0 +1,12 @@
+Marginal Probability
+	If we know P(X,Y) then P(x) = Sum_overY( X=x, Y=y )
+	Or P(x) = Integral_overY( p(x,y) dy ) "Integrate out"
+Conditional Probability
+	P(Y=y|X=x) means what is the probability of Y=y if we know X=x
+	P(Y=y|X=x) = P(X=x, Y=y) / P(X=x)
+Chain Rule
+	P(X1, X2, X3, ... ) = P(X1) * P(X2|X1) * P(X3|X1,X2) * ... * P(Xn|X1, X2, ... Xn-1)
+Independence
+	X (indep) Y iff for all x,y P(X=x, Y=y) = P(X=x)P(Y=y)
+Conditional Independence
+	P(Y=y, X=x | Z=z) = P(Y|Z)P(X|Z)
