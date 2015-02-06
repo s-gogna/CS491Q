@@ -10,3 +10,24 @@ Independence
 	X (indep) Y iff for all x,y P(X=x, Y=y) = P(X=x)P(Y=y)
 Conditional Independence
 	P(Y=y, X=x | Z=z) = P(Y|Z)P(X|Z)
+Expectations
+	E[f(X)] = Sum_overX( P(x)f(x) )
+	Or Integral_overX( P(x)f(X)dx )
+	E[ af(x) + bf(x) ] = aE[f(x)] + bE[f(x)]
+
+	Var(f(x)) = E[ (f(x) - E[f(x)])^2 ]
+	std(f(x)) = Var(f(x))^1/2
+Covariance
+	Cov(f(x), g(y)) = E[ (f(x) - E[f(x)]) * (g(y) - E[g(y)]) ]
+	Suppose X in Rn is a random vector
+		Then the covariane matrix is the nxn matrix
+		Cov(x)ij = Cov( Xi, Xj )
+Information Theory: field that revolves around quantifying the amount of information in a signal
+	Intuition: learning that an unlikely event has occurred contains more informtion than learning that a likely event has occurred
+	Goals:
+		1. Likely events should have low information content
+		2. Unlikely events should have high information content
+		3. If one event is half as likely as another, learning about the former event should have 2x the information content of the latter
+	Def: the self information of an event x is I(x) = -log(x)
+	We can quantify the amount of information in a probability distribution with the Shannon entropy
+	Shannon Entropy: H(X) = E_(x~p)[ I(x) ] = Integral( -p(x)log( p(x) ))
