@@ -1,0 +1,19 @@
+Def: The self-information of an event is I(x) = -log(x)
+We can quantify the amount of information in an entire distribution using the Shannon Entropy.
+Shannon Entropy: H(x) = E[ I(x) ] = Integral_overReals( -p(x) * log( p(x) ) dx )
+
+1. Distributions that are nearly deterministic have low entropy.
+2. Distributions that are nearly uniform have higher entropy.
+
+KL Divergence
+Suppose that X is a random variable. Suppose P and Q are two distributions for X.
+We can measure how different P and Q are using the Kullback-Leibler Divergence.
+D_KL( P || Q ) = E[ log( P(x) / Q(x) ]
+1. KL Divergence is always >= 0
+2. KL Divergence = 0 iff p "=" q
+3. D( P || Q ) != D( Q || P ) in general
+
+Among all continuous distributions with a given mean (mu) and standard deviation (sigma), 
+the distribution that maximizes entropy is N( mu, sigma^2 ).
+
+Try the practice problems on Richard's iPython notebook.
