@@ -1,0 +1,7 @@
+X1, ..., Xn are independent, identically distributed random variables.
+The likelihood function is defined by 
+	Ln(theta) = product(1 -> n)f(Xi; theta) = f(X1, ... Xn; theta)
+The log likelihood function is defined by
+	Mn(theta) = log( Ln(theta) )
+The maximum likelihood estimator, denoted thetaHat_n, is the value of theta that maximizes Ln(theta).
+If we multiply the likelihood function by a constant c, this doesn't change the maximum likelihood estimater.

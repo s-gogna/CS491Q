@@ -1,0 +1,5 @@
+Images -> Features (Lines) -> Features (Shapes) -> Features (Things) -> Labels
+
+Recursive Neural Net vs Recurrent Neural Net
+
+socher.org
