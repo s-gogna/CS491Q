@@ -1,0 +1,16 @@
+X1, ..., Xn are independent, identically distributed random variables.
+The likelihood function is defined by 
+	Ln(theta) = product(1 -> n)f(Xi; theta) = f(X1, ... Xn; theta)
+The log likelihood function is defined by
+	Mn(theta) = log( Ln(theta) )
+The maximum likelihood estimator, denoted thetaHat_n, is the value of theta that maximizes Ln(theta).
+If we multiply the likelihood function by a constant c, this doesn't change the maximum likelihood estimater.
+
+Ex: X1, ..., Xn ~ Bernoulli(p). The prob. function is f(x;p) = p^x(1-p)^(1-x) for x = 0,1
+Ln(p) = product( 1 -> n )f(Xi; p) = product( 1 -> n )p^(Xi)(1-p)^(1-Xi)
+Mn(p) = Slogp + (n-S)log(1-p) where P = sum(all i)Xi
+
+Ex: X1, ..., Xn ~ N(mu, sigma^2). The likelihood function is
+Ln(mu,sigma) = product(1->n) 1/sigma * e^( -1/(2*sigma^2) * (Xi - mu)^2 )
+             = sigma^(-n) * e^( -1/(2*sigma^2) * sum(all i)(Xi - mu)^2 )
+Taking log   = -nlog(sigma) - ( 1/(2*sigma^2) * sum(all i)(Xi - mu)^2 )
