@@ -1,0 +1,46 @@
+E = 0.5 * (t_p1 - O_p1)^2 * (t_p2 - O_p2)^2
+
+delta_j = sigma'(...) * sumOverAlpha( delta_alpha * W_alpha,j )
+
+E_p = 0.5 * sumOverJ( t_pj - O_pj )^2
+
+Partial(E_p , W_ji) = Partial(E_p , O_pj) * Partial(O_pj , W_ji)
+
+O_pj = sumOverI( W_ji * input_pi )
+
+Partial(E_p , W_ji) = -( t_pj * O_pj ) * i_pi
+
+... something
+
+Define net_pj = sumOverI( W_ji * O_pi )
+Where O_i = input_i if input is an input unit
+Then define O_pj = f_j( net_pj )
+
+Example f's we might use:
+1) Sigmoid: f(x) = 1/(1 + e^-x)		// Ranges (0,1)
+2) Hyperbolic Tangent: f(x) = tanh(x)	// Looks like sigmoid but (-1,1)
+3) Rectified Linear (ReLu): f(x) = max(0,x)
+4) Linear: f(x) = x
+5) Parametric ReLu (PReLu): f(x) = max(0,x) + a*min(0,x)
+
+Partial(E_p , W_ji) = Partial(E_p , net_pj) * Partial(net_pj , W_ji)
+
+Partial(net_pj , W_ji) = Partial( sumOverK(W_jk * O_pk) , W_ji ) = O_pi
+
+Define: delta_pj = -1 * Partial(E_p , net_pj)
+
+Partial(E_p , W_ji) = -1 * delta_pj * O_pi
+
+delta_pj = -1 * Partial(E_p , net_pj) = -1 * Partial(E_p , O_pj) * Partial(O_pj , net_pj)
+
+Partial(O_pj , net_pj) = f'_j( net_pj )
+
+Partial(E_p , O_pj) has 2 cases: output unit OR hidden unit
+
+Output Unit: use the def. of E_p
+Partial(E_p , O_pj) = -(t_pj - O_pj)
+
+Hidden Unit: 
+Partial(E_p , O_pj) = sumOverK( Partial(E_p , net_pk) * Partial(net_pk , O_pj)
+= sumOverK( Partial(E_p , net_pk) * W_kj )
+= sumOverK( delta_pk , W_kj )
