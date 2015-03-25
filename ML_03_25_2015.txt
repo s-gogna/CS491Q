@@ -1,0 +1,12 @@
+Hyperparameters: parameters for neural nets that can't have gradient descent applied to them.
+To pick hyperparameters, smart choices must be made.
+
+W(k+1) = W(k) - alpha*(dE/dW) + alphaPrime*delta( W(k) )
+
+alphaPrime*delta( W(k) ) stands for momentum
+The momentum hyperparameter is used for skipping over local maxima/minima
+
+E = -log likelihood of data
+L(W) = -log p(X|W) + lambda*||W|| + lambdaPrime*||W||2
+lambda*||W|| means L1 penalty
+lambda*||W||2 means L2 penalty
