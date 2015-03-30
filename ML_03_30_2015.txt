@@ -1,0 +1,15 @@
+Convolution Neural Net
+Convolve mask with image to get new image.
+Edges can be handled in different ways.
+
+Convolution Layer
+Input -> Convolution Layer -> Subsample (image half of its resolution, nxn -> n/2 x n/2)
+Big -> Smaller makes training more stable.
+Nonlinearity thrown in because convolution is a linear operator.
+
+Input -> Convolution Layer 1 -> Convolution Layer 2 -> Neural Net -> Output
+After a string of convolutions, you flatten your images and continue with a neural net.
+
+Spacial L2 Pooling: Calculating L2 norm and doing something with it.
+
+By next class, implement Convolutional NN with MNIST.
