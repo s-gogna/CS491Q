@@ -1,0 +1,18 @@
+CNNs
+Dropout
+	Features should no correlate to each other (ideally)
+	Features should correlate to labels (ideally)
+	1. Compute the activation of neuron1 and neuron2
+	2. Flip a coin for each neuron deciding if the activation should be zeroed
+		when it is forwarded
+	Torch: nn.Dropout(0.5)
+	DropConnect: connections/weights dropped
+Validation Sets
+	[Training Set|Test Set]
+	In the past, training done on the entire set, but this causes overconfidence
+		in the system because it has already seen the input and output.
+	Systems need to be able to generalize to unseen inputs.
+	[Training Set|Validation Set|Test Set]
+	Training with training. Optimize with validation. Evaluate with test.
+	K-Fold Cross Validation
+German Street Signs
