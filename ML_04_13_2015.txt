@@ -1,0 +1,17 @@
+Auto-Encoder
+  Same number of outputs as inputs
+  Training set { xi_1, xi_2, xi_3 } -> { xi_1, xi_2, xi_3 }\
+  No labels means unsupervised learning
+  If you have some labels, method is called semi-supervised
+  We do this to extract features/structure from our data
+  Can use this to preprocess before we do more fancy stuff
+  Can reduce dimentionality of data
+  We can use the activations ( z_1, z_2 ) to represent our data
+  Sparsity constraint: middle layer has more nodes, but force some of them to go to 0
+    k% if the hidden activations are zero
+    You want to do dimentionality reduction, but in a data driven manner
+    Better to use more hidden nodes and sparsity than to forcing lower dimensions by using less hidden nodes
+German Street Sign Dataset
+  Use SpatialContrastiveNormalization
+  ( SpatialConvolution -> Non-linearlity -> SpatialMaxPooling ) x 2
+  View -> Linear -> Dropout -> PreLu -> Linear -> Droput -> LogSoftMax
