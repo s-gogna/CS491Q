@@ -1,0 +1,11 @@
+Goal: Construct a projection that maintains (or preservers) distance
+  1. Define distance
+  2. Define an object that captures distance info in input space
+  3. Repeat step 2 for output space. This is a function of the projected points.
+  4. Optimize to make A and B close
+KL( P, Q ) = integ( P * log(P/Q) )    // P, Q are probability distributions (Gaussians)
+  2'. Define a probability distribution over pair of points such that 
+    - Points that are close have high prob.
+    - Points that are far have low prob.
+For Wed/Fri:
+  Do t-SNE (in manifold package) with MNIST data
