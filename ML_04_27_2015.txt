@@ -1,0 +1,18 @@
+Discriminitive Model
+  Map inputs to labels
+  x_vec -> linear -> ReLU -> ... -> Softmax y (Labels)
+  p(y | x_vec)
+Generative Model
+  Represents the joint distribution between inputs and labels: p(x_vec,y)
+  p(x_vec, y) -> p(x_vec), p(y) using marginalization
+  Can eventually be used to get p(y | x_vec)
+General Graph
+  Two connected nodes represent a relationship of the random variables
+  Two unconnected nodes represent independence of the random variables
+Restricted Boltzman Machine (RBM)
+  Each visible node is connected to each hidden node
+  Visible nodes are independent of each other
+  Hidden nodes are independent of each other
+  Training algorithm = Contrastive Divergence
+  Binary-Binary RBM
+  Gaussian-Binary RBM
