@@ -1,0 +1,18 @@
+{ X_t } t = 1 -> infinity
+Possible tasks:
+  1. Classify the whole sequence
+  2. Predict future X_t's
+  3. Characterize distribution of X_t's in some way
+1D Convolution over time to combine information in a way that is useful in combining data
+Number of sequence items dependent on the input data/sequence
+  Ex: A cat's actions won't always be 3 frames of a video
+Input gate: if the input gate is turned off, we ignore the input
+Output gate: if the output gate is turned off, we stop any output
+Recurrent connection: loops back into the cell
+Forget gate: if forget is set, we lose the information from the recurrent connection
+LSTM: Long Short Term Memory
+Google:
+  Convolution of 1 frame -> multiple LSTM nodes -> Softmax
+  Convolution of 1 frame -> multiple LSTM nodes (that also take the inputs of the LSTM from previous frame) -> Softmax
+  Convolution weights are shared among frames
+Time has to be modeled if you want to remember stuff
