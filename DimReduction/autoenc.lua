@@ -43,41 +43,48 @@ sgdconf = {learningRate = 1e-3}
 --    [3] ...
 -- }
 local minibatchsize = 32
-for i = 1,subsetSize,minibatchsize do
- 
-    -- create minibatch of training samples
-    samples = torch.Tensor(minibatchsize,inputSize)
-    for i = 1,minibatchsize do
-        samples[i] = trainData.data[i]
-    end
- 
-    -- define closure
-    local feval = function()
-      -- reset gradient/f
-      local f = 0
-      dl_dx:zero()
- 
-      -- estimate f and gradients, for minibatch
-      for i = 1,minibatchsize do
-         -- f
-         f = f + module:updateOutput(samples[i], samples[i])
- 
-         -- gradients
-         module:updateGradInput(samples[i], samples[i])
-         module:accGradParameters(samples[i], samples[i])
-      end
- 
-      -- normalize
-      dl_dx:div(minibatchsize)
-      f = f/minibatchsize
- 
-      -- return f and df/dx
-      return f,dl_dx
-   end
- 
-   -- do SGD step
-   optim.sgd(feval, x, sgdconf)
- 
+function doOneEpoch()
+	for i = 1,subsetSize,minibatchsize do
+	 
+	    -- create minibatch of training samples
+	    samples = torch.Tensor(minibatchsize,inputSize)
+	    for i = 1,minibatchsize do
+		samples[i] = trainData.data[i]
+	    end
+	 
+	    -- define closure
+	    local feval = function()
+	      -- reset gradient/f
+	      local f = 0
+	      dl_dx:zero()
+	 
+	      -- estimate f and gradients, for minibatch
+	      for i = 1,minibatchsize do
+		 -- f
+		 f = f + module:updateOutput(samples[i], samples[i])
+	 
+		 -- gradients
+		 module:updateGradInput(samples[i], samples[i])
+		 module:accGradParameters(samples[i], samples[i])
+	      end
+	 
+	      -- normalize
+	      dl_dx:div(minibatchsize)
+	      f = f/minibatchsize
+	 
+	      -- return f and df/dx
+	      return f,dl_dx
+	   end
+	 
+	   -- do SGD step
+	   optim.sgd(feval, x, sgdconf)
+	 
+	end
+end
+
+-- Do 200 epochs
+for i = 1, 200 do
+	doOneEpoch()
 end
 
 -- Auto-Encoder training complete
